@@ -68,6 +68,20 @@ document.body.appendChild(renderer.domElement);
 
 //KeyboardState
 const keyboard = new THREEx.KeyboardState(renderer.domElement);
+renderer.domElement.setAttribute("tabIndex", "0");
+renderer.domElement.focus();
+
+keyboard.domElement.addEventListener('keydown', function(event){
+    if (event.repeat) {
+        return;
+    }
+    if ( keyboard.eventMatches(event, 'left') ){
+        cube.position.x	-= 0.5;   
+    }
+    if ( keyboard.eventMatches(event, 'right') ){
+        cube.position.x	+= 0.5;   
+    }
+})
 
 //ADD GEOMETRY
 //cubo (humano)
