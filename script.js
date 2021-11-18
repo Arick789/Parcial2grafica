@@ -76,10 +76,10 @@ keyboard.domElement.addEventListener('keydown', function(event){
         return;
     }
     if ( keyboard.eventMatches(event, 'left') ){
-        cube.position.x	-= 0.5;   
+        cubeplayer.position.x	-= 0.5;   
     }
     if ( keyboard.eventMatches(event, 'right') ){
-        cube.position.x	+= 0.5;   
+        cubeplayer.position.x	+= 0.5;   
     }
 })
 
@@ -89,12 +89,12 @@ var geometry = new THREE.BoxGeometry(10, 1, 1);
 var material = new THREE.MeshBasicMaterial({
   color:  0xe74c3c,  //Naranja
 });
-var cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+var cubeplayer = new THREE.Mesh(geometry, material);
+scene.add(cubeplayer);
 
-cube.position.x = 0
-cube.position.y = -7.1
-cube.position.z = 0
+cubeplayer.position.x = 0
+cubeplayer.position.y = -7.1
+cubeplayer.position.z = 0
 
 //circulo (pelota)
 var geometry = new THREE.CircleGeometry(1, 32);
@@ -123,21 +123,6 @@ cubecpu.position.z = 0
 //Animate
  const animate= function() {
 	requestAnimationFrame( animate );
-
-    /*
-    tiempo = 0.001;
-    distancia = 100;
-
-    recorrido = distancia*tiempo;
-
-    if(keyboard.pressed("left")){
-        cube.position.x+= recorrido;
-    }
-    
-    if(keyboard.pressed("right")){
-        cube.position.x-= recorrido;
-    }
-    */
     
 	renderer.render( scene, camera );
 }
